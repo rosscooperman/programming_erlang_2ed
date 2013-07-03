@@ -15,5 +15,5 @@ term_packet_test(Term) ->
   {ok, Term}.
 
 reverse_bits(Bin) ->
-  Bytes = [ lists:reverse([ X || <<X:1>> <= <<Byte:8>> ]) || Byte <- lists:reverse(binary_to_list(Bin)) ],
+  << <<Bit:1>> || Bit <- lists:reverse([ Bit || <<Bit:1>> <= Bin ]) >>.
 
